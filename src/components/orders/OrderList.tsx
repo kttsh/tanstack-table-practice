@@ -391,7 +391,7 @@ export const OrderList = () => {
 													<div className="bg-gray-50 p-4">
 														<table className="w-full">
 															<tbody>
-																{row.original.products.map((product, index) => (
+																{row.original.products.map((product, _) => (
 																	<tr
 																		key={product.sku}
 																		className="border-b last:border-0"

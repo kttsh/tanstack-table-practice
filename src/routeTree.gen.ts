@@ -12,7 +12,7 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as UsersImport } from './routes/users'
-import { Route as PoImport } from './routes/po'
+import { Route as OrdersImport } from './routes/orders'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
@@ -23,9 +23,9 @@ const UsersRoute = UsersImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const PoRoute = PoImport.update({
-  id: '/po',
-  path: '/po',
+const OrdersRoute = OrdersImport.update({
+  id: '/orders',
+  path: '/orders',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -46,11 +46,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/po': {
-      id: '/po'
-      path: '/po'
-      fullPath: '/po'
-      preLoaderRoute: typeof PoImport
+    '/orders': {
+      id: '/orders'
+      path: '/orders'
+      fullPath: '/orders'
+      preLoaderRoute: typeof OrdersImport
       parentRoute: typeof rootRoute
     }
     '/users': {
@@ -67,41 +67,41 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/po': typeof PoRoute
+  '/orders': typeof OrdersRoute
   '/users': typeof UsersRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/po': typeof PoRoute
+  '/orders': typeof OrdersRoute
   '/users': typeof UsersRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/po': typeof PoRoute
+  '/orders': typeof OrdersRoute
   '/users': typeof UsersRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/po' | '/users'
+  fullPaths: '/' | '/orders' | '/users'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/po' | '/users'
-  id: '__root__' | '/' | '/po' | '/users'
+  to: '/' | '/orders' | '/users'
+  id: '__root__' | '/' | '/orders' | '/users'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  PoRoute: typeof PoRoute
+  OrdersRoute: typeof OrdersRoute
   UsersRoute: typeof UsersRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  PoRoute: PoRoute,
+  OrdersRoute: OrdersRoute,
   UsersRoute: UsersRoute,
 }
 
@@ -116,15 +116,15 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/po",
+        "/orders",
         "/users"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
-    "/po": {
-      "filePath": "po.tsx"
+    "/orders": {
+      "filePath": "orders.tsx"
     },
     "/users": {
       "filePath": "users.tsx"

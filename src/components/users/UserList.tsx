@@ -37,7 +37,7 @@ const columns = [
 ];
 
 export const UserList = () => {
-	const [data, setData] = useState<User[]>(() => [...userData]);
+	const [data, _] = useState<User[]>(() => [...userData]);
 
 	const table = useReactTable({
 		columns,
